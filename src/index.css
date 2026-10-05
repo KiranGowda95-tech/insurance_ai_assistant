@@ -4,62 +4,19 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f7fb;
-}
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
 
-.app {
-  min-height: 100vh;
-}
-
-.app {
-  min-height: 100vh;
-  display: flex;
-}
-
-aside {
-  width: 240px;
-  min-height: 100vh;
-  background: #111827;
-  color: white;
-  padding: 24px;
-}
-
-aside h2 {
-  margin-bottom: 40px;
-}
-
-aside nav p {
-  padding: 12px 0;
-  cursor: pointer;
-}
-
-main {
-  flex: 1;
-  padding: 50px;
-}
-
-main h1 {
-  margin-bottom: 10px;
-}
-
-main p {
-  color: #6b7280;
-  margin-bottom: 30px;
-}
-
-main input {
-  width: 500px;
-  padding: 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-}
-
-main button {
-  margin-left: 10px;
-  padding: 14px 24px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  background: #f6f8fc;
 }
