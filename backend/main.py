@@ -14,6 +14,8 @@ from services.hospital_service import get_hospital_by_id
 
 from services.claim_analysis_service import analyze_claim
 
+from routes.chat import router as chat_router
+
 
 
 app=FastAPI(
@@ -21,6 +23,8 @@ app=FastAPI(
     description="Backend APi for the Enterprise Claims & Policy Intelligence Assistant",
     version="1.0.0",
 )
+
+app.include_router(chat_router)
 
 #  cors
 app.add_middleware(

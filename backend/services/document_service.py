@@ -14,7 +14,7 @@ def get_claim_documents(claim_id:str):
 
         result=db.execute(statement)
 
-        documents=result.scalars().all
+        documents=result.scalars().all()
 
         return [
             {

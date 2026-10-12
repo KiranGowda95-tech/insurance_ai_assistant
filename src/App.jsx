@@ -10,7 +10,9 @@ function App() {
       {/* <h1>Insurance Intelligence Assistant</h1> */}
       <Sidebar />
 
-      <Chat />
+      <div className='main-content'>
+        <Chat />
+      </div>
     </div>
   );
 }
