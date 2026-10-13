@@ -1,7 +1,8 @@
 const API_BASE_URL =
   import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
 
-export async function sendMessage(query) {
+export async function sendMessage(query, history = []) {
+  const safeHistory = Array.isArray(history) ? history : [];
   console.log('Sending question to API:', query);
   const response = await fetch(`${API_BASE_URL}/api/chat`, {
     method: 'POST',
@@ -10,6 +11,10 @@ export async function sendMessage(query) {
     },
     body: JSON.stringify({
       query,
+      history: safeHistory.slice(-10).map(({ role, content }) => ({
+        role,
+        content,
+      })),
     }),
   });
 

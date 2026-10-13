@@ -1,0 +1,112 @@
+{
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "score_percent": 100.0,
+  "results": [
+    {
+      "id": "EVAL001",
+      "policy": "Health Secure Plus",
+      "question": "What is the maternity waiting period?",
+      "expected": "24 months",
+      "topic": "Maternity",
+      "passed": true,
+      "answer": "### Maternity Waiting Period for Health Secure Plus\n\n- **Waiting Period**: The maternity benefits under the Health Secure Plus policy are covered after a **24-month waiting period**.\n- **Conditions**: This is subject to the specific plan variant and any applicable sub-limits.\n\nIf you have any more questions about the policy or its coverage, feel free to ask!",
+      "scope_status": "in_scope",
+      "tools_used": [
+        "search_policy"
+      ],
+      "checks": {
+        "requested_policy_mentioned": true,
+        "maternity_mentioned": true,
+        "24_month_waiting_period": true
+      },
+      "failed_checks": [],
+      "reason": "All configured factual checks passed; verify retrieved policy evidence separately."
+    },
+    {
+      "id": "EVAL002",
+      "policy": "Family Care Gold",
+      "question": "Is dental treatment covered?",
+      "expected": "Only under covered circumstances such as accident according to policy terms",
+      "topic": "Exclusions",
+      "passed": true,
+      "answer": "### Family Care Gold Dental Treatment Coverage\n\n- **Dental Treatment Exclusion**: Dental treatment is generally **not covered** under the Family Care Gold policy, except when it is caused by an accident.\n- **Other Exclusions**: The policy also excludes infertility treatment, cosmetic surgery, and intentional self-harm.\n\nIf you have any further questions about specific treatments or conditions, feel free to ask!",
+      "scope_status": "in_scope",
+      "tools_used": [
+        "search_policy"
+      ],
+      "checks": {
+        "requested_policy_mentioned": true,
+        "dental_treatment_mentioned": true,
+        "accident_exception_mentioned": true,
+        "coverage_exclusion_mentioned": true
+      },
+      "failed_checks": [],
+      "reason": "All configured factual checks passed; verify retrieved policy evidence separately."
+    },
+    {
+      "id": "EVAL003",
+      "policy": "Critical Care Elite",
+      "question": "Is maternity covered?",
+      "expected": "No, not under base critical illness plan",
+      "topic": "Maternity",
+      "passed": true,
+      "answer": "### Maternity Coverage in Critical Care Elite\n\n- **Maternity Coverage**: Not covered under the base critical illness plan.\n\nThis information is based on the policy document for Critical Care Elite. If you have further questions or need additional details, feel free to ask!",
+      "scope_status": "in_scope",
+      "tools_used": [
+        "search_policy"
+      ],
+      "checks": {
+        "requested_policy_mentioned": true,
+        "maternity_mentioned": true,
+        "base_plan_mentioned": true,
+        "not_covered_mentioned": true
+      },
+      "failed_checks": [],
+      "reason": "All configured factual checks passed; verify retrieved policy evidence separately."
+    },
+    {
+      "id": "EVAL004",
+      "policy": "Motor Protect Comprehensive",
+      "question": "Is drunk driving covered?",
+      "expected": "No",
+      "topic": "Exclusions",
+      "passed": true,
+      "answer": "### Coverage for Drunk Driving under Motor Protect Comprehensive\n\n- **Exclusions**: The Motor Protect Comprehensive policy explicitly states that intoxication is an exclusion. This means that claims related to incidents occurring while driving under the influence of alcohol are not covered.\n\nIn summary, drunk driving is not covered under the Motor Protect Comprehensive policy.",
+      "scope_status": "in_scope",
+      "tools_used": [
+        "search_policy"
+      ],
+      "checks": {
+        "requested_policy_mentioned": true,
+        "driving_risk_mentioned": true,
+        "exclusion_mentioned": true
+      },
+      "failed_checks": [],
+      "reason": "All configured factual checks passed; verify retrieved policy evidence separately."
+    },
+    {
+      "id": "EVAL005",
+      "policy": "Global Travel Secure",
+      "question": "Are known pre-existing conditions covered?",
+      "expected": "Generally excluded unless specifically covered",
+      "topic": "Exclusions",
+      "passed": true,
+      "answer": "### Coverage of Known Pre-Existing Conditions in Global Travel Secure\n\n- **Exclusion**: Known pre-existing conditions are **not covered** under the Global Travel Secure policy unless they are specifically mentioned as covered.\n- **Other Exclusions**: The policy also excludes high-risk adventure activities unless endorsed and unlawful acts.\n\nIf you have any further questions or need more details, feel free to ask!",
+      "scope_status": "in_scope",
+      "tools_used": [
+        "search_policy"
+      ],
+      "checks": {
+        "requested_policy_mentioned": true,
+        "preexisting_condition_mentioned": true,
+        "specific_coverage_exception_mentioned": true,
+        "exclusion_mentioned": true
+      },
+      "failed_checks": [],
+      "reason": "All configured factual checks passed; verify retrieved policy evidence separately."
+    }
+  ],
+  "evaluation_note": "Passes indicate that configured answer-pattern checks and scope validation succeeded. They do not independently prove source grounding, factual completeness, or semantic correctness. Review answers against the retrieved policy evidence."
+}

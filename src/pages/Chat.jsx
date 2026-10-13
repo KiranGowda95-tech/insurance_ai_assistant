@@ -82,7 +82,7 @@ export const Chat = () => {
       // CALL API
       // ==========================================
 
-      const response = await sendMessage(question);
+      const response = await sendMessage(question, messages);
 
       // ==========================================
       // CREATE AI MESSAGE

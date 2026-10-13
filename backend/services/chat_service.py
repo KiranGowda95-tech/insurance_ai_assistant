@@ -65,7 +65,7 @@ from agent.tool_graph import run_tool_agent
 
 logger=logging.getLogger(__name__)
 
-def process_chat(query:str)->dict:
+def process_chat(query:str,history:list[dict] | None=None)->dict:
     """Process a chat request through the LLM tool-calling agent."""
 
     query=query.strip()
@@ -79,7 +79,7 @@ def process_chat(query:str)->dict:
     
     try:
 
-        result=run_tool_agent(query)
+        result=run_tool_agent(query,history=history or [])
 
         return {
             "query":result.get("query",query),
