@@ -1,3 +1,5 @@
+import logging
+
 from rag.hybrid_retriever import hybrid_search
 from rag.reranker import rerank_results
 from rag.context_builder import build_context
@@ -61,6 +63,8 @@ from agent.graph import run_agent
 
 from agent.tool_graph import run_tool_agent
 
+logger=logging.getLogger(__name__)
+
 def process_chat(query:str)->dict:
     """Process a chat request through the LLM tool-calling agent."""
 
@@ -72,11 +76,21 @@ def process_chat(query:str)->dict:
             "answer":"Please enter a question.",
             "tools_used":[]
         }
+    
+    try:
 
-    result=run_tool_agent(query)
+        result=run_tool_agent(query)
 
-    return {
-        "query":result.get("query",query),
-        "answer":result.get("answer",""),
-        "tools_used":result.get("tools_used",[])
-    }
+        return {
+            "query":result.get("query",query),
+            "answer":result.get("answer",""),
+            "tools_used":result.get("tools_used",[]),
+            "scope_status":result.get("scope_status","unknown"),
+        }
+
+    except Exception:
+        logger.exception("Failed to process insurance chat query.")
+
+        #Keep internal exceptions out of the API response.
+        raise
+

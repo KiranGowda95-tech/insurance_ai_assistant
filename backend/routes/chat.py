@@ -1,7 +1,11 @@
+import logging
+
 from fastapi import APIRouter, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel,Field
 
 from services.chat_service import process_chat
+
+logger=logging.getLogger(__name__)
 
 router =APIRouter(
     prefix="/api",
@@ -9,13 +13,17 @@ router =APIRouter(
 )
 
 class ChatRequest(BaseModel):
-    query:str
+    query:str=Field(
+        min_length=1,
+        max_length=2000,
+        description="Insurance-related question,upto 2000 characters."
+    )
 
 
 @router.post("/chat")
 def chat(request:ChatRequest):
     """
-    Process a user question through the insurance RAG pipeline.
+    Process a user question through the insurance assistant.
     """
     if not request.query.strip():
         raise HTTPException(
@@ -28,10 +36,18 @@ def chat(request:ChatRequest):
 
         return result
 
-    except Exception as e:
+    except HTTPException:
+        raise
+
+    except Exception:
+        logger.exception("Unexcepted error while processing chat query.")
+
         raise HTTPException(
             status_code=500,
-            detail=f"Error processing query: {str(e)}"
-        )
+            detail=(
+                "The assistant could not process your request."
+                "Please try again later."
+            ),
+        ) from None
 
     

@@ -18,10 +18,10 @@ export const Chat = () => {
   const messagesEndRef = useRef(null);
 
   const suggestions = [
-    '1)What is the status of claim CLM300500?',
-    '2)Which documents are missing?',
-    '3)What is the maternity waiting period?',
-    '4)Is this treatment covered under my policy?',
+    'What is the status of claim CLM300001?',
+    'Which documents are missing for claim CLM300001?',
+    'What is the maternity waiting period?',
+    'What is covered under my insurance policy?',
   ];
 
   // ==========================================
@@ -99,19 +99,16 @@ export const Chat = () => {
     } catch (error) {
       console.error('Error while sending message:', error);
 
-      // ==========================================
-      // ERROR MESSAGE
-      // ==========================================
-
       const errorMessage = {
         id: Date.now() + 1,
         role: 'assistant',
-        content: 'Sorry, something went wrong while processing your request.',
+        content: `Sorry, I couldn't process your question. ${
+          error.message || 'Please check that the backend is running.'
+        }`,
       };
 
       setMessages((previousMessages) => [...previousMessages, errorMessage]);
     } finally {
-      // Hide loading state
       setLoading(false);
     }
   };
